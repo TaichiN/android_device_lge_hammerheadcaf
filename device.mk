@@ -152,7 +152,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true \
-    mm.enable.qcom_parser=3310129 \
     ro.qc.sdk.audio.fluencetype=fluence \
     persist.audio.fluence.voicecall=true \
     persist.audio.fluence.audiorec=true \
@@ -289,6 +288,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.tap=false \
     ro.qti.sensors.facing=false \
     ro.qti.sensors.tilt=false \
+    ro.qti.sensors.tilt_detector=true \
     ro.qti.sensors.amd=false \
     ro.qti.sensors.rmd=false \
     ro.qti.sensors.vmd=false \
