@@ -56,7 +56,7 @@ BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
 
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/hammerheadcaf/bluetooth
-BOARD_BLUEDROID_VENDOR_CONF := device/lge/hammerheadcaf/bluetooth/vnd_hammerhead.txt
+BOARD_CUSTOM_BT_CONFIG := device/lge/hammerheadcaf/bluetooth/vnd_hammerhead.txt
 
 # Wifi related defines
 WPA_SUPPLICANT_VERSION      := VER_0_8_X
@@ -103,16 +103,14 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 734003200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
-COMMON_GLOBAL_CFLAGS += -DNO_SECURE_DISCARD
-COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
-
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
 TARGET_RECOVERY_FSTAB = device/lge/hammerheadcaf/fstab.hammerhead
 
-# Releasetools
+# Recovery
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_hammerhead
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/hammerheadcaf
+BOARD_NO_SECURE_DISCARD := true
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.hammerhead
 
@@ -138,9 +136,12 @@ TARGET_POWERHAL_VARIANT := hammerhead
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
 USE_DEVICE_SPECIFIC_CAMERA:= true
 
+TARGET_NEEDS_PLATFORM_TEXT_RELOCATIONS := true
+
+# Use Snapdragon LLVM, if available
+TARGET_USE_SDCLANG := true
+
 # Hardware
 BOARD_HARDWARE_CLASS := device/lge/hammerheadcaf/cmhw
-
-USE_CLANG_PLATFORM_BUILD := true
 
 -include vendor/lge/hammerheadcaf/BoardConfigVendor.mk
